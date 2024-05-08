@@ -19,10 +19,10 @@ export class Database {
 
     private async connectToDatabase () {
         this.sequelize = new Sequelize({
-            database: database,
-            username: username,
-            password: password,
-            host: host,
+            database,
+            username,
+            password,
+            host,
             dialect,
             pool: {
                 max: config.pool.max,
