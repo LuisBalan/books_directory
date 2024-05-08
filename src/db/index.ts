@@ -1,6 +1,14 @@
 import { Sequelize } from "sequelize-typescript";
 import { config, dialect } from "../config/db.config";
 import Book from "../models/book.model";
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+const database = process.env.DB;
+const username = process.env.USER;
+const password = process.env.PASSWORD;
+const host = process.env.HOST;
 
 export class Database {
     public sequelize: Sequelize | undefined;
@@ -11,10 +19,10 @@ export class Database {
 
     private async connectToDatabase () {
         this.sequelize = new Sequelize({
-            database: config.DB,
-            username: config.USER,
-            password: config.PASSWORD,
-            host: config.HOST,
+            database: database,
+            username: username,
+            password: password,
+            host: host,
             dialect,
             pool: {
                 max: config.pool.max,
