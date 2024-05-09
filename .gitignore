@@ -1,1 +1,4 @@
 /src/config/db.config.ts
+
+#environmental variables
+.env
